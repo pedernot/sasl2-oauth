@@ -45,6 +45,9 @@ static int xoauth2_client_mech_step(void *conn_context,
     int r = SASL_OK;
 
     if (text->state > 0) {
+        if (serverinlen == 0 || (serverinlen == 1 && serverin[0] == '\0')) {
+          return SASL_OK;
+        }
         static char buf[1024];
         strncpy(buf, serverin, serverinlen);
         buf[serverinlen < 1023 ? serverinlen : 1023] = '\0';
