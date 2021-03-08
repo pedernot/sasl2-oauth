@@ -14,6 +14,7 @@ authzid and the bearer token as the password.
 ## install
 
 ```sh
+autoreconf -i
 ./configure --prefix=/usr
 make
 sudo make install
